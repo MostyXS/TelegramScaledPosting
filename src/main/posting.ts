@@ -9,7 +9,7 @@ import { bot } from './index.js'
 export const findMatchedTags = (postType: PostType, msgContent: string): string[] => {
     const matches = Object.entries(getMatches(postType))
     return matches.map(([matchName, words]) => {
-        if (words.some((word) => msgContent.includes(word)))
+        if (words.some((word) => msgContent.toLowerCase().includes(word.toLowerCase())))
             return `#${matchName}`
         return undefined
     }).filter(tag => tag != undefined)
