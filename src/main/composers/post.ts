@@ -1,7 +1,11 @@
 import { Composer, Scenes } from 'telegraf'
 import { BotCommand } from 'telegraf/typings/core/types/typegram'
-import { getCategoryChannels } from '../configs/categories.js'
-import * as postConfig from '../configs/post.js'
+import {
+    getPostChannels,
+    initializePost,
+    isPostInitialized,
+    setPostID,
+} from '../configs/post.js'
 
 enum Commands {
     List = 'post_channels_list',
@@ -24,7 +28,7 @@ export const postComposer = new Composer<Scenes.WizardContext>()
 postComposer.command(Commands.List, async (ctx) => {
     try {
         await ctx.reply(
-            Object.entries(postConfig.getPostChannels())
+            Object.entries(getPostChannels())
                 .map(([key, value]) => `${key}: ${value.postId}`)
                 .toStringList()
         )
@@ -35,7 +39,7 @@ postComposer.command(Commands.List, async (ctx) => {
 
 postComposer.inputCommand(Commands.Set, 2, async (args, ctx) => {
     const postType = await ctx.verifyPostType(args[0])
-    if(!postType) return
+    if (!postType) return
     const channelId = args[1]
     if (!postType) {
         return await ctx.reply(
@@ -54,9 +58,9 @@ postComposer.inputCommand(Commands.Set, 2, async (args, ctx) => {
     }
 
     try {
-        if(postConfig.isInitialized(postType)) postConfig.initialize(postType)
+        if (isPostInitialized(postType)) initializePost(postType)
 
-        postConfig.setID(postType, channelId)
+        setPostID(postType, channelId)
         return await ctx.reply(
             `Channel with id ${channelId} successfully set as ${postType} post channel`
         )

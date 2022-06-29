@@ -1,5 +1,5 @@
 
-//Extensions should not import runtime modules
+//Extensions should not import working modules
 export enum PostType {
     TELEGRAM = 'telegram',
     DISCORD = 'discord',

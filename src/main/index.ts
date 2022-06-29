@@ -1,5 +1,5 @@
 import { Telegraf, session, Telegram, Context, Scenes } from 'telegraf'
-import { MainCD, mainComposer } from './composers/staged.js'
+import { MainCD, mainComposer } from './staged.js'
 import { isUserAllowed, getOwnerId } from './configs/owner.js'
 
 //Connection to client
@@ -18,6 +18,7 @@ bot.use(mainComposer.middleware())
 bot.start(async (ctx) => {
     await ctx.telegram.setMyCommands(MainCD)
     await ctx.reply('You have successfully registered commands')
+    await ctx.reply('Statistics formatting is: #tag: number of mentions')
 })
 
 bot.launch().then(() => {

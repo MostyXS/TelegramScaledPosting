@@ -20,7 +20,7 @@ Composer.prototype.inputCommand = function (
     callback
 ) {
     this.command(command, (ctx) => {
-        const args: string[] = ctx.message.text.toClearArray().slice(1)
+        const args: string[] = ctx.message.text.toLowerCase().toClearArray().slice(1)
         if (args.length < requiredArgs)
             return ctx.reply(
                 'Недостаточно аргументов, прочтите описание команды'

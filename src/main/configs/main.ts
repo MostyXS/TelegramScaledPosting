@@ -7,11 +7,11 @@ interface MainJSON {
     ownerId: number
     allowedUsers: number[]
     
+    keywordSets: {[setName: string]: string[]}
     postChannels: {[postType in PostType]: 
         {
-            matches: {[tag: string]: string[]}
             postId: string
-            categories: {[channelCategory: string]: string[] //ids or names}
+            categories: {[categoryName: string]: string[] //ids or names
             } 
         }
     }

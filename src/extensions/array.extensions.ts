@@ -3,9 +3,10 @@ export {}
 declare global {
     interface Array<T> {
         toStringList(this: T[]): string
+        toTags(this: string[]): string
         addArray(this: T[], other: T[]): T[]
         removeArray(this: T[], other: T[]): T[]
-        toSet(this: T[]): Set<T>
+        //toSet(this: T[]): Set<T>
         //toTelegramIds(this: string[]): string[]
     }
 }
@@ -28,4 +29,8 @@ Array.prototype.removeArray = function (this, other) {
     return this.filter(
         (item) => !other.some((itemToRemove) => item == itemToRemove)
     )
+}
+
+Array.prototype.toTags = function(this) {
+    return this.map(element => `#${element}`).toString().replace(',', ' ')
 }
