@@ -1,6 +1,10 @@
 {
     "ownerId": 12345,
     "allowedUsers": [],
+    "keywordSets": {
+        "greetings": ["hello", "hi"],
+        "parting": ["goodbye"]
+    }
     "postChannels": {
         "discord": {
             "postId": "-1001380368954",
@@ -9,10 +13,7 @@
                 "development": ["900663017086275585"],
                 "common": ["900663050774929468", "903218007894007818"]
             },
-            "matches": {
-                "greetings": ["hello", "hi"],
-                "parting": ["goodbye"]
-            }
+            
         },
         "twitter": {
             "postId": "-1001565386221",
@@ -20,7 +21,6 @@
                 "influencers": ["elonmusk", "alexdevps"],
                 "test": ["test"]
             },
-            "matches": { "hater": ["you"] }
         },
         "telegram": { "postId": "-1001503976983", "categories": {}, "matches": {} }
     }
