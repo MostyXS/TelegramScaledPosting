@@ -4,7 +4,7 @@
     "keywordSets": {
         "greetings": ["hello", "hi"],
         "parting": ["goodbye"]
-    }
+    },
     "postChannels": {
         "discord": {
             "postId": "-1001380368954",
@@ -12,7 +12,7 @@
                 "games": ["900663085407297536"],
                 "development": ["900663017086275585"],
                 "common": ["900663050774929468", "903218007894007818"]
-            },
+            }
             
         },
         "twitter": {
@@ -20,8 +20,8 @@
             "categories": {
                 "influencers": ["elonmusk", "alexdevps"],
                 "test": ["test"]
-            },
+            }
         },
-        "telegram": { "postId": "-1001503976983", "categories": {}, "matches": {} }
+        "telegram": { "postId": "-1001503976983", "categories": {} }
     }
 }
